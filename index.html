@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff3f8">
+<title>あなたへのお手紙</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:24px 16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#fff8fb,#ffeaf3 58%,#fff4e9);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#714b60}
+main{width:min(100%,440px);padding:28px 22px 30px;text-align:center;background:#ffffffdf;border:2px solid white;border-radius:28px;box-shadow:0 12px 35px #d68eae30}
+.kicker{font-size:12px;letter-spacing:.18em;color:#bd83a0}
+h1{font-size:25px;color:#a65f83;margin:9px 0 5px}
+.sub{font-size:14px;color:#a17b90;margin:0}
+.stage{height:270px;display:flex;align-items:center;justify-content:center;position:relative;margin:8px auto}
+.mascot{width:235px;height:235px;object-fit:contain;animation:bounce 2.2s ease-in-out infinite;filter:drop-shadow(0 8px 8px #8e4c6b22)}
+.spark{position:absolute;font-size:24px;color:#e8b94f;animation:twinkle 1.5s ease-in-out infinite}
+.a{left:28px;top:38px}.b{right:28px;top:58px;animation-delay:.5s}.c{right:55px;bottom:20px;animation-delay:1s}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+button{border:0;border-radius:999px;background:linear-gradient(90deg,#ed91b8,#df82ad);color:white;font-size:16px;font-weight:700;padding:15px 30px;box-shadow:0 6px 16px #df8db344}
+#letter{display:none;text-align:left;white-space:pre-wrap;line-height:1.95;margin-top:22px;padding:20px 18px;background:#fffaf0;border:1px solid #f4dfbd;border-radius:18px;font-size:15px}
+#letter.show{display:block;animation:appear .45s ease}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sign{text-align:right;display:block;margin-top:12px;color:#aa7890}
+.note{font-size:12px;color:#b18b9e;margin-top:16px}
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">A LITTLE GIFT FOR YOU</div>
+  <h1>あなたへのお手紙</h1>
+  <p class="sub">フラワっちから、ちいさな贈りもの ✿</p>
+  <div class="stage">
+    <span class="spark a">✧</span><span class="spark b">✦</span><span class="spark c">✧</span>
+    <img class="mascot" src="flowerchi.png" alt="フラワっち">
+  </div>
+  <button id="openBtn">お手紙をひらく ♡</button>
+  <div id="letter">ここにお手紙の文章が入ります。
+
+メッセージが決まったら、この部分をあなたの言葉に差し替えられます。
+<span class="sign">From 〇〇</span></div>
+  <div class="note">いつもありがとう ♡</div>
+</main>
+<script>
+const btn=document.getElementById('openBtn'), letter=document.getElementById('letter');
+btn.addEventListener('click',()=>{letter.classList.toggle('show');btn.textContent=letter.classList.contains('show')?'もう一度とじる':'お手紙をひらく ♡';});
+</script>
+</body>
+</html>
