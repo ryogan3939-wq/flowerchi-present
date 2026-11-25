@@ -27,6 +27,14 @@ button{border:0;border-radius:999px;background:linear-gradient(90deg,#ed91b8,#df
 </style>
 </head>
 <body>
+  <div id="lockScreen" style="position:fixed;inset:0;background:#fff3f8;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;">
+  <div style="font-size:65px;">🌸</div>
+  <h2 style="color:#a65f83;">秘密のお手紙 💌</h2>
+  <p style="color:#b18b9e;">4桁の合言葉を入力してね♡</p>
+  <input id="pass" type="password" maxlength="4" inputmode="numeric" placeholder="****" style="font-size:25px;width:150px;text-align:center;padding:12px;border:2px solid #e8b8ce;border-radius:15px;">
+  <button id="unlock" style="margin-top:20px;padding:13px 35px;background:#e8a9c5;color:white;border:0;border-radius:25px;font-size:16px;">ロック解除 ♡</button>
+  <p id="error" style="color:#e0789e;"></p>
+</div>
 <main>
   <div class="kicker">A LITTLE GIFT FOR YOU</div>
   <h1>穂乃樺へお手紙</h1>
@@ -54,7 +62,14 @@ button{border:0;border-radius:999px;background:linear-gradient(90deg,#ed91b8,#df
 <span class="sign">From 永井涼雅</span></div>
   <div class="note">お！</div>
 </main>
-<script>
+<script>document.getElementById('unlock').addEventListener('click',()=>{
+  const pass=document.getElementById('pass').value;
+  if(pass==='1206'){
+    document.getElementById('lockScreen').style.display='none';
+  }else{
+    document.getElementById('error').textContent='番号がちがうよ♡';
+  }
+});
 const btn=document.getElementById('openBtn'), letter=document.getElementById('letter');
 btn.addEventListener('click',()=>{letter.classList.toggle('show');btn.textContent=letter.classList.contains('show')?'もう一度とじる':'お手紙をひらく ♡';});
 </script>
